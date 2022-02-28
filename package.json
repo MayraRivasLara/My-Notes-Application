@@ -1,0 +1,15 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "An application to take notes, aiming to organize tasks.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayra Rivas Lara",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "uuid": "^8.3.2"
+  }
+}
