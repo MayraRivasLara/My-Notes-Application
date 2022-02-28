@@ -6,13 +6,12 @@ const app = express();
 
 const webRoutes = require('./routes/web');
 const apiRoutes = require('./routes/api');
+const path = require('path');
+
 
 // define port to be used by heroku on deployment.
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT,() => {
-    console.log(`Your awesome APP is running on http://localhost:${PORT}`);
-});
 
 // to be able to grab the index.js folder
 app.use(express.static('public'));
@@ -27,3 +26,7 @@ app.use(webRoutes);
 // api route to be able to serve to serve json
 app.use('/api',apiRoutes);
 
+
+app.listen(PORT,() => {
+    console.log(`Your awesome APP is running on http://localhost:${PORT}`);
+});

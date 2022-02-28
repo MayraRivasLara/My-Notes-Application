@@ -3,8 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const id = require('uuid');
 
-const dbPath = path.join(__dirname,'..', 'db', 'db.json')
+const dbPath = path.join(__dirname,'..', 'db', 'db.json');
 
+// jsDoc to get auto complete - nice way to specify the return type.
 /**
  * 
  * @returns {Array}
@@ -18,7 +19,8 @@ function getNotes(){
 
 function saveNotes(notes){
     fs.writeFileSync(dbPath, JSON.stringify(notes),'utf-8');
-}
+};
+
 
 router.get('/notes', (req, res) => {
     
@@ -30,8 +32,6 @@ router.get('/notes', (req, res) => {
     // send them back 
     res.json(notes);
 
-    const htmlFilePath = path.join(__dirname, '..', 'public', 'index.html');
-    res.sendFile(htmlFilePath);
 });
 
 router.post('/notes', (req, res) => {
@@ -43,7 +43,7 @@ router.post('/notes', (req, res) => {
 
     // create a new note in db.jason
     const newNote = {
-        id,
+        id: id.v4(),
         title,
         text,
     };
@@ -69,15 +69,23 @@ router.put('/notes/:id', (req, res) => {
     
     // find the note 
     const notesFound = notes.findIndex((note) => note.id === req.params.id);
+
     if(notesFound === -1) {
-        return res.status(404).json({
+        return res.status(400).json({
             error: 'Not found!'
         });
     };
 
     // update it
+
+    const updatedNote = notes[notesFound]
+    notes[notesFound].title = req.body.title || updatedNote.title;
+    notes[notesFound].text = req.body.text || updatedNote.text;
     
     // re-save
+    saveNotes(notes);
+
+    res.json(updatedNote);
 });
 
 // getting a specific note
@@ -90,26 +98,23 @@ router.get('/notes/:id', (req, res) => {
     const found = notes.find((note) => note.id === req.params.id);
 
     if(!found){
-        res.status(404).json({
+        res.status(400).json({
             error:'Note not found!'
         });
     } else {
+        // send back note 
         res.json(found);
     }
-
-    // send back note 
-
-
 });
 
 //delete selected note
 router.delete('/notes/:id', (req, res) =>{
     
     //get all notes
-    const allNotes = getNotes();
+    const notes = getNotes();
 
     // delete targeted note using id
-    const filtered = allNotes.filter((note) => note.id !== req.params.id);
+    const filtered = notes.filter((note) => note.id !== req.params.id);
 
     //re-save
     saveNotes(filtered);
@@ -117,7 +122,7 @@ router.delete('/notes/:id', (req, res) =>{
     // send res back
     res.json({
         data: "ok",
-    });
+    })
 });
 
 module.exports = router;
