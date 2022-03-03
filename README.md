@@ -8,7 +8,7 @@ My Notes Application can be used to write and save notes. This application will 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Technologies](#Technologies)
+- [Technologies](#technologies)
 - [License](#license)
 
 ## Installation
@@ -28,8 +28,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
    ![MyNotesApp](https://user-images.githubusercontent.com/94599271/156495947-3d64d6c2-0f8b-4c0e-9017-1b7c932f5cd8.png)
    
-You can find My-Notes-Application deployed on the following link:
 
+Click on this [Link](https://frozen-eyrie-42428.herokuapp.com/) to see My-Notes-Application on your browser.
 
 ## Technologies
 
