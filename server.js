@@ -1,5 +1,6 @@
 // requesting required modules and files
 const express = require('express');
+const fs = require('fs');
 
 // initializing express app
 const app = express();
@@ -26,6 +27,11 @@ app.use(webRoutes);
 // api route to be able to serve to serve json
 app.use('/api',apiRoutes);
 
+//404 html page reference
+app.get('*', (req, res) => {
+    const errorPage = path.join(__dirname, 'public', '404.html');
+    res.status(404).sendFile(errorPage);
+});
 
 app.listen(PORT,() => {
     console.log(`Your awesome APP is running on http://localhost:${PORT}`);

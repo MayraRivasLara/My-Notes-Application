@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="no-index, no-follow" />
+    <title>| My Notes App | 404</title>
+    <style>
+      @font-face {
+        font-family: "Proxima Nova";
+        src: url('/static/graphics/ProximaNova-Regular.woff2') format('woff2'),
+        url('/static/graphics/ProximaNova-Regular.woff') format('woff');
+      }
+
+      * {
+        padding:0; 
+        margin:0;
+      }
+
+      body, 
+      html {
+        background-color: #fff;
+        color: #36383b;
+        font-family: "Proxima Nova", Arial, sans-serif;
+        font-size: 1rem;
+        height: 100%;
+        -webkit-font-smoothing: antialiased;
+        width: 100%;
+      }
+
+      a,
+      a:hover,
+      a:active,
+      a:visited {
+        color: #36383b;
+        text-decoration: none;
+      }
+
+     .nav {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1170px;
+        margin: 0 auto;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+     
+      .content-block {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .content-block .headline {
+        font-weight: bold;
+        font-size: 62px;
+        margin-bottom: 16px;
+      }
+
+     .content-block .headline-copy {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      
+      .image {
+        margin-bottom: 26px;
+        margin-top: 100px;
+      }
+
+      .headline-wrapper {
+        margin: 0 auto;
+        padding-left: 22px;
+        padding-right: 22px;
+        text-align: left;
+        width: 50%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header >
+      <nav>
+        <a href="http://localhost:3001/notes">Go back to the home page</a>
+      </nav>
+    </header>
+    <div class="content-block">
+      <img src="./public/404image/meditation.png" class="image" alt="woman meditating">
+      <div class="headline-wrapper">
+        <h1 class="headline">Something's wrong here.</h1>
+        <p class="headline-copy">
+          This is a 404 error, which means you've clicked on a bad link or entered an invalid URL.
+          Keep calm and try again!</p>
+      </div>
+    </div>
+  </body>
+</html>
